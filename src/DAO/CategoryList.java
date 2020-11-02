@@ -23,11 +23,12 @@ import java.io.PrintWriter;
 public class CategoryList extends ArrayList<Category> {
 
     private static final String filename1 = "E:\\FALL_2020\\LAB_OOP\\ProductManager\\category.txt";
+
     public CategoryList loadFromFile() {
         String s;
         FileReader f = null;
         BufferedReader rf = null;
-          CategoryList catList = new CategoryList();
+        CategoryList catList = new CategoryList();
         File f1 = new File(filename1);
         if (!f1.exists()) {
             try {
@@ -41,7 +42,7 @@ public class CategoryList extends ArrayList<Category> {
             rf = new BufferedReader(f);
 
             while ((s = rf.readLine()) != null) {
-                
+
                 String[] arr = s.split("[;]");
 
                 Category temp = new Category(arr[0], arr[1]);
@@ -50,8 +51,7 @@ public class CategoryList extends ArrayList<Category> {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("The file is not existed! Please save the data to file or create \"category.txt\" in project folder!");
-        } 
-        finally {
+        } finally {
             try {
                 if (f != null) {
                     f.close();
@@ -109,7 +109,7 @@ public class CategoryList extends ArrayList<Category> {
                     this.add(newCat);
                 }
             }
-            
+
             if (!MyValidation.chooseYN("Continue Adding More Category?", "", "Returning to menu")) {
                 return;
             }
@@ -199,8 +199,9 @@ public class CategoryList extends ArrayList<Category> {
             this.add(C);
         }
     }
-        public void saveFile() {
-         
+
+    public void saveFile() {
+
         if (this.isEmpty()) {
             System.out.println("Nothing to save!");
             return;
@@ -208,7 +209,8 @@ public class CategoryList extends ArrayList<Category> {
         writeCategory(this);
         System.out.println("Saved");
     }
-    public void print(){
+
+    public void print() {
         CategoryList fromFile = this.loadFromFile();
         PrintUtils.printCategoryList(fromFile);
     }
@@ -218,9 +220,7 @@ public class CategoryList extends ArrayList<Category> {
     }
 
     public CategoryList() {
-        
+
     }
-    
-    
 
 }

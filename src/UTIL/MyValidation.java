@@ -28,7 +28,7 @@ public class MyValidation {
     }
 
     public static boolean isEmptyString(String string) {
-        return string == null || string.isEmpty();
+        return string == null || string.isEmpty(); 
     }
 
     //Utility for checking returning yes or no with Question dialog

@@ -18,7 +18,7 @@ public class ProductManager {
         
         
         Menu menu = new Menu("Product Manager");
-        menu.add(" Add category");
+        menu.add("Add category");
         menu.add("UnD category");
         menu.add("Add product");
         menu.add("UnD product");

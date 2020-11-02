@@ -24,7 +24,7 @@ public class ProductList extends ArrayList<Product> {
     CategoryList catList;
     private static final String filename2 = "E:\\FALL_2020\\LAB_OOP\\ProductManager\\product.txt"; 
     public ProductList loadFromFile() {
-         String s;
+        String s;
         FileReader f = null;
         BufferedReader rf = null;
         ProductList proList = new ProductList();
@@ -191,6 +191,7 @@ public class ProductList extends ArrayList<Product> {
         updateMenu.addItems("Update Name");
         updateMenu.addItems("Update Price");
         updateMenu.addItems("Update Category ID");
+        updateMenu.addItems("Update Quantity");
 
         while (true) {
             updateMenu.printMenu("Return");
@@ -225,6 +226,15 @@ public class ProductList extends ArrayList<Product> {
                             this.get(searchIndex).setCategoryID(categoryId);
                             System.out.println("Category Changed!");
                         }
+                    }
+                    break;
+                case 4:
+                    Integer quantity = InputUtils.inputQuantity(true);
+                    if (quantity <= 0) {
+                        System.out.println("Quantity Remain Unchaged!");
+                    } else {
+                        this.get(searchIndex).setQuantity(quantity);
+                        System.out.println("Quantity Changed!");
                     }
                     break;
                 default:
